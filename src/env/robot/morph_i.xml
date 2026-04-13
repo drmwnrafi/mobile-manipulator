@@ -20,7 +20,7 @@
                     <geom mesh="LifePo4_12V50Ah_1" material="0.301961_0.301961_0.301961_0.000000_0.000000" class="visual"/>
                     <geom mesh="LifePo4_12V50Ah_2" material="0.792157_0.819608_0.933333_0.000000_0.000000" class="visual"/>
                     <geom mesh="LifePo4_12V50Ah_3" material="1.000000_1.000000_1.000000_0.000000_0.000000" class="visual"/>
-                    <geom type="box" size="0.14 0.28 0.07" pos="-0.17 0 0.08" quat="1 0 0 0" rgba="0 1 0 1" class="collision"/>
+                    <geom type="box" size="0.14 0.28 0.07" pos="-0.17 0 0.08" quat="1 0 0 0" rgba="0 1 0 1" contype="1" conaffinity="0" group="3"/>
                 </body>
                 <!-- LOGO ROBOTNIK IZQUIERDO -->
                 <!-- <geom type="mesh" pos="0.0 0.28931 0.203434" quat="1 0 0 0" rgba="0.5 0.5 0.5 1" mesh="robotnik_logo_chasis" contype="0" conaffinity="0" group="2"/> -->
@@ -358,9 +358,9 @@
                 <!-- ARM MOUNTED ON TOP OF MOBILE BASE -->
                 <!-- Position the arm base on top of the robot chassis -->
                 
-                <body name="Arm_1" pos="0.15 0.15 0.158566">
+                <body name="Arm_1" pos="0.15 0.15 0.158566" gravcomp="1">
                     <!-- <inertial pos="0 0 0.8" euler=" 0 0 1.57" mass="1" diaginertia="0.2559055 0.2359055 0.0385028"/> -->
-                    <joint name="BaseJoint_1" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"  limited="false" />
+                    <joint name="BaseJoint_1" pos="0 0 0" axis="0 0 1"  limited="false" />
                     <geom mesh="VerticalArm_0" material="0.301961_0.301961_0.301961_0.000000_0.024" class="visual"/>
                     <geom mesh="VerticalArm_1" material="0.301961_0.301961_0.301961_0.000000_0.023" class="visual"/>
                     <geom mesh="VerticalArm_2" material="0.301961_0.301961_0.301961_0.000000_0.022" class="visual"/>
@@ -371,7 +371,7 @@
                     
                     <body name="Bearing_Column_Left_1" pos="0 -0 0">
                         <!-- <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="0.1" diaginertia="6.25e-05 3.291665e-05 3.291665e-05"/> -->
-                        <joint name="ColumnLeftBearingJoint_1" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43"/>
+                        <joint name="ColumnLeftBearingJoint_1" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43" damping="5000"/>
                         <geom mesh="LeftVerticalRotationSlider_0" material="0.301961_0.301961_0.301961_0.000000_0.030" class="visual"/>
                         <geom mesh="LeftVerticalRotationSlider_1" material="0.901961_0.901961_0.901961_0.000000_0.019" class="visual"/>
                         <geom mesh="LeftVerticalRotationSlider_2" material="0.501961_0.501961_0.501961_0.000000_0.007" class="visual"/>
@@ -382,7 +382,7 @@
                             <geom mesh="LeftHorizontalSlider_1" material="0.901961_0.901961_0.901961_0.000000_0.018" class="visual"/>
                             <body name="Arm_Left_1" pos="-0 0 0">
                                 <!-- <inertial pos="0 0 0" euler="0 1.57 0" mass="0.7" diaginertia="0.02921335 0.02917835 5.83335e-05"/> -->
-                                <joint name="ArmLeftJoint_1" pos="0 0 0" axis="1 0 0" type="slide"/>
+                                <joint name="ArmLeftJoint_1" pos="0 0 0" axis="1 0 0" type="slide" damping="5000"/>
                                 <geom mesh="HorizontalArm_0" material="0.301961_0.301961_0.301961_0.000000_0.027" class="visual"/>
                                 <geom mesh="HorizontalArm_1" material="0.901961_0.901961_0.901961_0.000000_0.017" class="visual"/>
                                 <!-- <geom type="box" size="0.4 0.02 0.04" pos="-0.3 0 0.07" quat="1 0 0 0" rgba="0 1 0 1" contype="1" conaffinity="1"/> -->
@@ -513,7 +513,7 @@
                     </body>
                     <body name="Bearing_Column_Right_1" pos="0 0 0">
                         <!-- <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="0.1" diaginertia="6.25e-05 3.291665e-05 3.291665e-05"/> -->
-                        <joint name="ColumnRightBearingJoint_1" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43" />
+                        <joint name="ColumnRightBearingJoint_1" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43" damping="5000"/>
                         <geom mesh="RightVerticalRotationSlider_0" material="0.501961_0.501961_0.501961_0.000000_0.008" class="visual"/>
                         <geom mesh="RightVerticalRotationSlider_1" material="0.301961_0.301961_0.301961_0.000000_0.026" class="visual"/>
                         <geom mesh="RightVerticalRotationSlider_2" material="0.901961_0.901961_0.901961_0.000000_0.016" class="visual"/>
@@ -530,7 +530,7 @@
 
                 <!-- ARM MOUNTED ON TOP OF MOBILE BASE -->
                 <!-- Position the arm base on top of the robot chassis -->
-                <body name="Arm_2" pos="0.15 -0.15 0.158566">
+                <body name="Arm_2" pos="0.15 -0.15 0.158566" gravcomp="1">
                     <!-- <inertial pos="0 0 0.8" euler=" 0 0 1.57" mass="1" diaginertia="0.2559055 0.2359055 0.0385028"/> -->
                     <joint name="BaseJoint_2" pos="0 0 0" axis="0 0 1" range="-3.14159 3.14159"  limited="false" />
                     <geom mesh="VerticalArm_0" material="0.301961_0.301961_0.301961_0.000000_0.024" class="visual"/>
@@ -547,7 +547,7 @@
                     
                     <body name="Bearing_Column_Left_2" pos="0 -0 0">
                         <!-- <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="0.1" diaginertia="6.25e-05 3.291665e-05 3.291665e-05"/> -->
-                        <joint name="ColumnLeftBearingJoint_2" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43"/>
+                        <joint name="ColumnLeftBearingJoint_2" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43" damping="5000"/>
                         <geom mesh="LeftVerticalRotationSlider_0" material="0.301961_0.301961_0.301961_0.000000_0.030" class="visual"/>
                         <geom mesh="LeftVerticalRotationSlider_1" material="0.901961_0.901961_0.901961_0.000000_0.019" class="visual"/>
                         <geom mesh="LeftVerticalRotationSlider_2" material="0.501961_0.501961_0.501961_0.000000_0.007" class="visual"/>
@@ -558,7 +558,7 @@
                             <geom mesh="LeftHorizontalSlider_1" material="0.901961_0.901961_0.901961_0.000000_0.018" class="visual"/>
                             <body name="Arm_Left_2" pos="-0 0 0">
                                 <!-- <inertial pos="0 0 0" euler="0 1.57 0" mass="0.7" diaginertia="0.02921335 0.02917835 5.83335e-05"/> -->
-                                <joint name="ArmLeftJoint_2" pos="0 0 0" axis="1 0 0" type="slide" />
+                                <joint name="ArmLeftJoint_2" pos="0 0 0" axis="1 0 0" type="slide" damping="5000"/>
                                 <geom mesh="HorizontalArm_0" material="0.301961_0.301961_0.301961_0.000000_0.027" class="visual"/>
                                 <geom mesh="HorizontalArm_1" material="0.901961_0.901961_0.901961_0.000000_0.017" class="visual"/>
                                 <!-- <geom type="box" size="0.41 0.02 0.04" pos="-0.041 0 0.07" quat="1 0 0 0" rgba="0 1 0 0" contype="1" conaffinity="1"/> -->
@@ -571,7 +571,7 @@
                                     <geom mesh="RightHorizontalSlider_5" material="0.250980_0.250980_0.250980_0.000000_0.001" class="visual"/>
                                     <geom mesh="RightHorizontalSlider_6" material="0.000000_1.000000_0.000000_0.000000_0.001" class="visual"/>
                                     <geom mesh="RightHorizontalSlider_7" material="0.301961_0.301961_0.301961_0.000000_0.029" class="visual"/>
-                                    <joint name="ArmRightJoint_2" pos="0 0 0" axis="1 0 0" type="slide" range="-0.525 0.1" limited="true" stiffness="500" damping="100"/>
+                                    <joint name="ArmRightJoint_2" pos="0 0 0" axis="1 0 0" type="slide" range="-0.525 0.1" limited="true" stiffness="0" damping="0"/>
                                     <body name="Contact_Cylinder_1_2" pos="-0.049998 0.040458  0.069379 ">
                                         <!-- <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="0.001" diaginertia="1.5625e-07 7.81665e-08 7.81665e-08"/> -->
                                         <joint name="ContactCylinderJoint_2_2" pos="0 0 0" axis="0 1 0"  damping="0.0"/>
@@ -689,7 +689,7 @@
                     </body>
                     <body name="Bearing_Column_Right_2" pos="0 0 0">
                         <!-- <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="0.1" diaginertia="6.25e-05 3.291665e-05 3.291665e-05"/> -->
-                        <joint name="ColumnRightBearingJoint_2" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43" />
+                        <joint name="ColumnRightBearingJoint_2" pos="0 0 0" axis="0 0 1" type="slide" range="0 1.43" damping="5000"/>
                         <geom mesh="RightVerticalRotationSlider_0" material="0.501961_0.501961_0.501961_0.000000_0.008" class="visual"/>
                         <geom mesh="RightVerticalRotationSlider_1" material="0.301961_0.301961_0.301961_0.000000_0.026" class="visual"/>
                         <geom mesh="RightVerticalRotationSlider_2" material="0.901961_0.901961_0.901961_0.000000_0.016" class="visual"/>

@@ -4,7 +4,7 @@ import json
 import argparse
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from modules.pubsub import IPCPubSub
+from core.basic.pubsub import ZMQPubSub
 
 def parse_value(value_str, value_type):
     """Parse string value based on type"""
@@ -39,7 +39,7 @@ def main():
         message = parse_value(args.value, args.type)
         print(f"Publishing to '{args.topic}': {message} (type: {type(message).__name__})")
 
-        ipc = IPCPubSub()
+        ipc = ZMQPubSub()
         pub = ipc.create_publisher()
         pub.publish(args.topic, message)
         print("✓ Published!")
